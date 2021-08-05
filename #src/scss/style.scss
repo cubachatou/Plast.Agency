@@ -31,7 +31,7 @@ $md4: 479.98;
 
 $mainColor: #050000;
 $additionalColor: #fff;
-$hoverColor: #ffcb05;
+$hoverColor: #FEF822;
 
 //</ПЕРЕМЕННЫЕ>===========================================================================================================
 
@@ -92,8 +92,262 @@ body {
   height: 900px;
   background: #666;
 }
-.main__body {
-  height: 1200px;
-  background-color: #fff;
+//<BODY-MAIN>============================================================================
+.body-main {
+  @include adaptiv-value("padding-top", 110, 57.5, 1);
+  @include adaptiv-value("padding-bottom", 75, 30, 1);
+  // .body-main__content
+		&__content {
+		}
+		// .body-main__title
+		&__title {
+      display: flex;
+      flex-direction: column;
+      max-width: 1090px;
+      @include adaptiv-value("margin-bottom", 110, 50, 1);
+      @include adaptiv-font(49, 22, 1);
+      line-height: 80.85 / 49 * 100%;
+      &:hover .body-main__link {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+      }
+		}
 }
+
+.key-numbers {
+  display: flex;
+  flex-direction: column;
+  @include adaptiv-value("margin-bottom", 80, 22.5, 1);
+		// .key-numbers__title
+		&__title {
+      @include adaptiv-value("margin-bottom", 60, 30, 1);
+      font-weight: 500;
+      @include adaptiv-font(22, 20, 1);
+      line-height: 30.8 / 22 * 100%;
+		}
+		// .key-numbers__row
+		&__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5%;
+      @media (max-width: $md2+px) {
+        flex-wrap: wrap;
+      }
+		}
+		// .key-numbers__col
+		&__col {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 22.5%;
+      @media (max-width: $md2+px) {
+        flex: 0 0 48.75%;
+        margin-bottom: 15px;
+      }
+      @media (max-width: $md3+px) {
+        margin-bottom: 30px;
+        flex: 0 0 100%;
+      }
+		}
+		// .key-numbers__number
+		&__number {
+      font-weight: 400;
+      @include adaptiv-font(90, 65, 1);
+      line-height: 126 / 90 * 100%;
+		}
+		// .key-numbers__text
+		&__text {
+      max-width: 260px;
+      @include adaptiv-font(22, 18, 1);
+      line-height: 48.4 / 22 * 100%;
+		}
+}
+
+.services {
+		// .services__title
+		&__title {
+      @include adaptiv-value("margin-bottom", 60, 30, 1);
+      font-weight: 500;
+      @include adaptiv-font(22, 20, 1);
+      line-height: 30.8 / 22 * 100%;
+		}
+		// .services__row
+		&__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5%;
+      @media (max-width: $md2+px) {
+        flex-wrap: wrap;
+      }
+		}
+		// .services__col
+		&__col {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 22.5%;
+      padding-bottom: 32px;
+      &:hover .services__link {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+      }
+      @media (max-width: $md2+px) {
+        flex: 0 0 48.75%;
+      }
+      @media (max-width: $md3+px) {
+        flex: 0 0 100%;
+      }
+		}
+		// .services__col-title
+		&__col-title {
+      @include adaptiv-value("margin-bottom", 25, 12.5, 1);
+      @include adaptiv-font(49, 22, 1);
+      line-height: 80.85 / 49 * 100%;
+		}
+		// .services__col-text
+		&__col-text {
+      @include adaptiv-font(22, 18, 1);
+      line-height: 50.6 / 22 * 100%;
+		}
+}
+//</BODY-MAIN>===========================================================================
+
+//<WORKS-MAIN>============================================================================
+.works {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 1365+px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: $md4+px) {
+    grid-template-columns: 1fr;
+  }
+		// .works__item
+		&__item {
+      padding-top: 75%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background-color 0.3s ease 0s;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        & .works__img-wrapper {
+          transform: scale(1);
+        }
+        & .works__item-body {
+          opacity: 1;
+          visibility: visible;
+          transition: all .75s cubic-bezier(.19,1,.22,1);
+          transform: translateY(0);
+        }
+      }
+		}
+		// .works__item-body
+		&__item-body {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      transform: translateY(20%);
+      transition: all .75s cubic-bezier(.19,1,.22,1);
+		}
+		// .works__brand
+		&__brand {
+      font-weight: 400;
+      @include adaptiv-font(35, 20, 1);
+      line-height: 49 / 35 * 100%;
+      color: $additionalColor;
+		}
+		// .works__done
+		&__done {
+      @include adaptiv-font(35, 20, 1);
+      color: rgba(255, 255, 255, 0.6);
+		}
+		// .works__img-wrapper
+		&__img-wrapper {
+      z-index: -1;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      transform: scale(1.1);
+      transition: transform 20s cubic-bezier(0,1,.35,1);
+		}
+}
+//</WORKS-MAIN>===========================================================================
+
+//<BRANDS-MAIN>============================================================================
+.brands {
+  @include adaptiv-value("padding-top", 90, 45, 1);
+  @include adaptiv-value("padding-bottom", 100, 50, 1);
+  background-color: $mainColor;
+		// .brands__title
+		&__title {
+      max-width: 1080px;
+      @include adaptiv-value("margin-bottom", 55, 40, 1);
+      @include adaptiv-font(49, 22, 1);
+      line-height: 80.85 / 49 * 100%;
+      color: $additionalColor;
+		}
+		// .brands__wrapper
+		&__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+		}
+		// .brands__item
+		&__item {
+      flex: 0 0 20%;
+      padding-top: 12.5%;
+      background: url(../img/icons/brands/adidas.svg);
+      fill: #fff;
+		}
+}
+//</BRANDS-MAIN>===========================================================================
+
+
+//<PUBLICATIONS-MAIN>============================================================================
+.publications {
+  @include adaptiv-value("padding-top", 90, 45, 1);
+		// .publications__content
+		&__content {
+		}
+		// .publications__title
+		&__title {
+      @include adaptiv-font(23, 15, 1);
+      line-height: 32.2 / 23 * 100%;
+      @include adaptiv-value("margin-bottom", 70, 40, 1);
+		}
+		// .publications__item
+		&__item {
+      display: flex;
+      flex-direction: column;
+      max-width: 1530px;
+      @include adaptiv-value("margin-bottom", 80, 50, 1);
+      color: $mainColor;
+      &:focus, &:hover {
+        & .publications__item-title {
+          color: $hoverColor;
+        }
+        & .publications__item-subtitle {
+          color: rgba(254, 248, 34, 0.5);
+        }
+      }
+		}
+		// .publications__item-title
+		&__item-title {
+      margin-bottom: 7px;
+      @include adaptiv-font(49, 22, 1);
+      line-height: 68.6 / 49 * 100%;
+		}
+		// .publications__item-subtitle
+		&__item-subtitle {
+      @include adaptiv-font(22, 18, 1);
+      line-height: 30.8 / 22 * 100%;
+      color: rgba(0, 0, 0, 0.6);
+		}
+}
+//</PUBLICATIONS-MAIN>===========================================================================
+
 //</ОСНОВНОЙ БЛОК>====================================================================================================

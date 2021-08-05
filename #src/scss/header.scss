@@ -1,5 +1,6 @@
 //====================================================================================================
 .header {
+  z-index: 9999;
   position: fixed;
   width: 100%;
   top: 30px;
@@ -95,11 +96,28 @@
 		}
 		// .main-menu__link
 		&__link {
+      position: relative;
       @include adaptiv-font(55, 36, 1);
       color: $mainColor;
-      transition: color 0.3s ease 0s;
+      transition: color 0.5s ease 0s, padding-right 0.5s ease 0s;
       &:hover {
         color: $hoverColor;
+        padding-right: 30px;
+        &::after {
+          left: -50%;
+        }
+      }
+      &::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: 200%;
+        width: 250%;
+        height: 120%;
+        background-color: $mainColor;
+        transition: all 0.5s ease 0s;
+        border-radius: 2.5px;
       }
 		}
 }
@@ -113,11 +131,27 @@
 		}
 		// .bot-menu__link
 		&__link {
+      position: relative;
       @include adaptiv-font(30, 20, 1);
       color: $mainColor;
-      transition: color 0.3s ease 0s;
+      transition: color 0.5s ease 0s;
       &:hover {
         color: $hoverColor;
+        &::after {
+          left: -50%;
+        }
+      }
+      &::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: 200%;
+        width: 250%;
+        height: 120%;
+        background-color: $mainColor;
+        transition: all 0.5s ease 0s;
+        border-radius: 2.5px;
       }
 		}
 }
