@@ -88,9 +88,77 @@ body {
 	flex: 1 1 auto;
 }
 //===================================================================================================================================
-.main__slider {
-  height: 900px;
-  background: #666;
+.slider {
+  position: relative;
+		// .slider__item
+		&__item {
+      position: relative;
+      padding: 16.115% 0px;
+      background-color: rgba(0, 0, 0, 0.2);
+      @media (max-width: $md4+px) {
+        padding: 34.19% 0px;
+      }
+		}
+		// .slider__img-wrapper
+		&__img-wrapper {
+      z-index: -1;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+		}
+		// .slider__content
+		&__content {
+      display: inline-flex;
+      flex-direction: column;
+      @include adaptiv-font(71, 30, 1);
+      line-height: 99.4 / 71 * 100%;
+      color: $additionalColor;
+      transition: all 0.3s ease 0s;
+      &:focus, &:hover {
+        color: $hoverColor;
+        & .slider__more {
+          color: $hoverColor;
+        }
+      }
+		}
+		// .slider__brand
+		&__brand {
+      width: fit-content;
+		}
+		// .slider__text
+		&__text {
+      width: fit-content;
+		}
+		// .slider__more
+		&__more {
+      opacity: 1;
+      visibility: visible;
+      color: $additionalColor;
+		}
+		// .slider__paggination
+		&__paggination {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      & .swiper-pagination-bullet {
+        @include adaptiv-value("width", 15, 5, 1);
+        @include adaptiv-value("height", 15, 5, 1);
+        border-radius: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s ease 0s;
+        background-color: rgba(255, 255, 255, 0.8);
+        &-active {
+          background-color: rgba(254, 248, 34, 0.8);
+        }
+      }
+		}
 }
 //<BODY-MAIN>============================================================================
 .body-main {
@@ -293,15 +361,22 @@ body {
 		}
 		// .brands__wrapper
 		&__wrapper {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      @include adaptiv-value("gap", 150, 15, 1);
+      @media (max-width: $md3+px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
 		}
 		// .brands__item
 		&__item {
-      flex: 0 0 20%;
-      padding-top: 12.5%;
-      background: url(../img/icons/brands/adidas.svg);
-      fill: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & span {
+        color: #7f7f7f;
+        @include adaptiv-font(70, 50, 1);
+      }
 		}
 }
 //</BRANDS-MAIN>===========================================================================
@@ -351,3 +426,140 @@ body {
 //</PUBLICATIONS-MAIN>===========================================================================
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<FOLIO>============================================================================
+.folio {
+		// .folio__content
+		&__content {
+      width: 80%;
+      margin: 0px auto 0px 0px;
+      @include adaptiv-value("margin-top", 220, 127.5, 1);
+      @include adaptiv-value("margin-bottom", 190, 95, 1);
+		}
+    p {
+      @include adaptiv-font(49, 22, 1);
+      line-height: 80.85 / 49 * 100%;
+    }
+		// .folio__filter
+		&__filter {
+      @include adaptiv-value("margin-bottom", 50, 25, 1);
+		}
+		// .folio__list
+		&__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      @include adaptiv-value("gap", 50, 25, 1);
+      @media (max-width: $md3+px) {
+        flex-direction: column;
+        align-items: start;
+      }
+		}
+		// .folio__item
+		&__item {
+      @include adaptiv-value("margin-bottom", 10, 5, 1);
+      @include adaptiv-font(24, 16, 1);
+      line-height: 33.6 / 24 * 100%;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.3s ease 0s, text-shadow 0.3s ease 0s;
+      &:focus, &:hover {
+        color: $hoverColor;
+        text-shadow: 0 0 20px $mainColor;
+      }
+      &._active {
+        font-weight: 900;
+      }
+		}
+}
+//</FOLIO>===========================================================================
+
+//<CONTACTS>============================================================================
+.contacts {
+  @include adaptiv-value("padding-top", 200, 150, 1);
+  // .contacts__content
+  &__content {
+      @include adaptiv-value("margin-bottom", 45, 32.5, 1);
+		}
+		// .contacts__title
+		&__title {
+      @include adaptiv-value("margin-bottom", 80, 75, 1);
+      @include adaptiv-font(55, 27.5, 1);
+      line-height: 90.75 / 55 * 100%;
+		}
+		// .contacts__row
+		&__row {
+      display: flex;
+		}
+		// .contacts__col
+		&__col {
+      display: flex;
+      flex-direction: column;
+			// .contacts__col_l
+			&_l {
+        flex: 0 0 911 / 1800 * 100%;
+			}
+			// .contacts__col_r
+			&_r {
+			}
+		}
+}
+
+.l-contacts {
+		// .l-contacts__row
+		&__row {
+      display: flex;
+      margin-bottom: 25px;
+		}
+		// .l-contacts__col
+		&__col {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 50%;
+		}
+		// .l-contacts__title
+		&__title {
+      @include adaptiv-value("margin-bottom", 50, 17.5, 1);
+      @include adaptiv-font(22, 18, 1);
+      line-height: 30.8 / 22 * 100%;
+      font-weight: 500;
+      text-transform: uppercase;
+		}
+		// .l-contacts__link
+		&__link {
+      width: fit-content;
+      @include adaptiv-font(25, 17.5, 1);
+      line-height: 46.25 / 25 * 100%;
+      color: $mainColor;
+      &:focus, &:hover {
+        text-decoration: underline;
+      }
+		}
+		// .l-contacts__text
+		&__text {
+      @include adaptiv-value("margin-bottom", 35, 17.5, 1);
+      font-size: 14px;
+		}
+		// .l-contacts__map-link
+		&__map-link {
+      @include adaptiv-font(22, 18, 1);
+      line-height: 30.8 / 22 * 100%;
+      letter-spacing: 0.7px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: $mainColor;
+      &:focus, &:hover {
+        text-decoration: underline;
+      }
+		}
+}
+
+.r-contacts {
+		// .r-contacts__form
+		&__form {
+      
+		}
+}
+//</CONTACTS>===========================================================================
+

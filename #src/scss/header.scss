@@ -4,6 +4,7 @@
   position: fixed;
   width: 100%;
   top: 30px;
+  transition: all 0.3s ease 0s;
 		// .header__content
 		&__content {
       margin: 0;
@@ -17,6 +18,9 @@
       height: 42px;
       width: 200px;
       background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
+      &_black {
+        background: url(../img/icons/logo-black.svg) no-repeat 50% 50% / contain;
+      }
 		}
 }
 
@@ -72,10 +76,9 @@
       @include adaptiv-font(20, 12.5, 1);
       color: $mainColor;
       border: 1px solid $mainColor;
-      transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+      transition: background-color 0.3s ease 0s;
       &:hover {
-        color: $hoverColor;
-        border-color: $hoverColor;
+        background-color: $hoverColor;
       }
       @media (max-width: $md3+px) {
         text-align: center;
@@ -112,7 +115,7 @@
         content: '';
         position: absolute;
         top: -10%;
-        left: 200%;
+        left: 250%;
         width: 250%;
         height: 120%;
         background-color: $mainColor;
@@ -146,7 +149,7 @@
         content: '';
         position: absolute;
         top: -10%;
-        left: 200%;
+        left: 250%;
         width: 250%;
         height: 120%;
         background-color: $mainColor;
@@ -189,6 +192,13 @@
       &:last-child {
         top: auto;
         bottom: 0px;
+      }
+    }
+  }
+  &_black {
+    & > span {
+      & span {
+        background-color: $mainColor;
       }
     }
   }

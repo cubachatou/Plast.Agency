@@ -61,36 +61,36 @@ if (sliderScrollItems.length > 0) {
 
 function sliders_bild_callback(params) { }
 
-let slider_about = new Swiper('.about__slider', {
-	/*
-	effect: 'fade',
-	autoplay: {
-		delay: 3000,
-		disableOnInteraction: false,
-	},
-	*/
-	observer: true,
-	observeParents: true,
-	slidesPerView: 1,
-	spaceBetween: 0,
-	autoHeight: true,
-	speed: 800,
-	//touchRatio: 0,
-	//simulateTouch: false,
-	//loop: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	//pagination: {
-	//	el: '.slider-quality__pagging',
-	//	clickable: true,
-	//},
-	// Arrows
-	navigation: {
-		nextEl: '.about__more .more__item_next',
-		prevEl: '.about__more .more__item_prev',
-	},
-	/*
+let sliderMain = new Swiper(".slider__swiper", {
+  // effect: 'fade',
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  observer: true,
+  observeParents: true,
+  slidesPerView: 1,
+  spaceBetween: 0,
+  speed: 700,
+  parallax: true,
+  //touchRatio: 0,
+  //simulateTouch: false,
+  loop: true,
+  preloadImages: false,
+  lazy: {
+    loadPrevNext: 1,
+  },
+  // Dotts
+  pagination: {
+    el: ".slider__paggination",
+    clickable: true,
+  },
+  // Arrows
+  navigation: {
+    nextEl: ".about__more .more__item_next",
+    prevEl: ".about__more .more__item_prev",
+  },
+  /*
 	breakpoints: {
 		320: {
 			slidesPerView: 1,
@@ -111,13 +111,9 @@ let slider_about = new Swiper('.about__slider', {
 		},
 	},
 	*/
-	on: {
-		lazyImageReady: function () {
-			ibg();
-		},
-	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
+  on: {
+    lazyImageReady: function () {
+      ibg();
+    },
+  },
 });
