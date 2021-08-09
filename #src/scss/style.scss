@@ -449,7 +449,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      @include adaptiv-value("gap", 50, 25, 1);
+      @include adaptiv-value("gap", 45, 20, 1);
       @media (max-width: $md3+px) {
         flex-direction: column;
         align-items: start;
@@ -457,16 +457,35 @@ body {
 		}
 		// .folio__item
 		&__item {
+      position: relative;
       @include adaptiv-value("margin-bottom", 10, 5, 1);
       @include adaptiv-font(24, 16, 1);
       line-height: 33.6 / 24 * 100%;
       text-transform: uppercase;
       cursor: pointer;
       white-space: nowrap;
-      transition: color 0.3s ease 0s, text-shadow 0.3s ease 0s;
+      border-radius: 2.5px;
+      overflow: hidden;
+      transition: all 0.15s ease 0s;
+      padding: 0px 5px;
+      &::before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $mainColor;
+        border-radius: 2.5px;
+        transition: all 0.15s ease 0s;
+      }
       &:focus, &:hover {
         color: $hoverColor;
-        text-shadow: 0 0 20px $mainColor;
+        &::before {
+          top: 0;
+        }
+        // text-shadow: 0 0 20px $mainColor;
       }
       &._active {
         font-weight: 900;
@@ -491,6 +510,10 @@ body {
 		// .contacts__row
 		&__row {
       display: flex;
+      justify-content: space-between;
+      @media (max-width: $md2+px) {
+        flex-direction: column;
+      }
 		}
 		// .contacts__col
 		&__col {
@@ -498,11 +521,20 @@ body {
       flex-direction: column;
 			// .contacts__col_l
 			&_l {
-        flex: 0 0 911 / 1800 * 100%;
+        flex: 0 0 889 / 1800 * 100%;
+        margin: 0px 0px 85px 0px;
 			}
 			// .contacts__col_r
 			&_r {
+        flex: 0 0 865 / 1800 * 100%;
 			}
+		}
+    // .contacts__map
+		&__map {
+      position: relative;
+      & iframe {
+        @include adaptiv-value("min-height", 925, 463, 1);
+      }
 		}
 }
 
@@ -543,6 +575,7 @@ body {
 		}
 		// .l-contacts__map-link
 		&__map-link {
+      width: fit-content;
       @include adaptiv-font(22, 18, 1);
       line-height: 30.8 / 22 * 100%;
       letter-spacing: 0.7px;
@@ -562,4 +595,53 @@ body {
 		}
 }
 //</CONTACTS>===========================================================================
+
+//<AGENCY>============================================================================
+.agency {
+  & .services {
+    @include adaptiv-value("padding-top", 95, 47.5, 1);
+    @include adaptiv-value("padding-bottom", 90, 45, 1);
+  }
+  & .services__title {
+    max-width: 60%;
+    @include adaptiv-value("margin-bottom", 110, 55, 1);
+    @include adaptiv-font(49, 22, 1);
+    line-height: 80.85 / 49 * 100%;
+    @media (max-width: $md2+px) {
+      max-width: 82%;
+    }
+    @media (max-width: $md3+px) {
+      max-width: 95%;
+    }
+  }
+		// .agency__content
+		&__content {
+		}
+		// .agency__entry-text-wrapper
+		&__entry-text-wrapper {
+      display: flex;
+		}
+    // .agency__entry-text
+		&__entry-text {
+      max-width: 75%;
+      @include adaptiv-value("padding-top", 220, 127.5, 1);
+      @include adaptiv-value("padding-bottom", 140, 62.5, 1);
+      @include adaptiv-font(49, 22, 1);
+      line-height: 80.85 / 49 * 100%;
+      @media (max-width: $md2+px) {
+        max-width: 82%;
+      }
+      @media (max-width: $md3+px) {
+        max-width: 95%;
+      }
+    }
+		// .agency__video
+		&__video {
+		}
+		// .agency__img-wrapper
+		&__img-wrapper {
+      padding-top: 56.25%;
+		}
+}
+//</AGENCY>===========================================================================
 
