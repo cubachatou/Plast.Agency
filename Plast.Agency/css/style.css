@@ -803,6 +803,14 @@ textarea.input {
   text-align: center;
 }
 
+.dark .header__logo {
+  background-image: url(../img/icons/logo-black.svg);
+}
+
+.dark .icon-menu__span {
+  background-color: #050000;
+}
+
 ._icon-more {
   position: relative;
   top: 16px;
@@ -1093,15 +1101,12 @@ body.ie ._ibg img {
 }
 
 .header__logo {
+  position: relative;
   z-index: 1;
   display: block;
-  height: 42px;
-  width: 200px;
+  height: 28px;
+  width: 170px;
   background: url(../img/icons/logo.svg) no-repeat 50% 50%/contain;
-}
-
-.header__logo_black {
-  background: url(../img/icons/logo-black.svg) no-repeat 50% 50%/contain;
 }
 
 .menu {

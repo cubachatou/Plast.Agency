@@ -1,4 +1,12 @@
 //<ОСНОВНОЙ БЛОК>====================================================================================================
+.dark {
+  & .header__logo {
+    background-image: url(../img/icons/logo-black.svg);
+  }
+  & .icon-menu__span {
+    background-color: $mainColor;
+  }
+}
 ._icon-more {
   position: relative;
   top: 16px;

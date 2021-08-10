@@ -34,79 +34,33 @@ function isOnScreen(elem) {
   }
 }
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (isOnScreen(jQuery(".slider"))) {
-      $(".icon-menu__span").css("backgroundColor", "#fff");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo.svg)"
-      );
-    } else {
-      $(".icon-menu__span").css("backgroundColor", "#050000");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo-black.svg)"
-      );
-    }
-  },
-  false
-);
 
 document.addEventListener(
   "scroll",
   function (e) {
-    if (isOnScreen(jQuery(".to-dark"))) {
-      $(".icon-menu__span").css("backgroundColor", "#050000");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo-black.svg)"
-      );
+    if (isOnScreen(jQuery(".light"))) {
+      $("header").add("backgroundColor", "#fff");
     } else {}
   },
   false
 );
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (isOnScreen(jQuery(".brands"))) {
-      $(".icon-menu__span").css("backgroundColor", "#fff");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo.svg)"
-      );
-    } else {}
-  },
-  false
-);
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (isOnScreen(jQuery(".footer"))) {
-      $(".icon-menu__span").css("backgroundColor", "#fff");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo.svg)"
-      );
-    } else {}
-  },
-  false
-);
+// const header = document.querySelector("header");
+// const sectionsDark = document.querySelector(".dark");
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (isOnScreen(jQuery(".works"))) {
-      $(".icon-menu__span").css("backgroundColor", "#fff");
-      $(".header__logo").css(
-        "backgroundImage",
-        "url(../img/icons/logo.svg)"
-      );
-    } else {}
-  },
-  false
-);
 
+// const sectionsDarkObserver = new IntersectionObserver(function (
+//   entries,
+//   sectionOneObserver
+// ) {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) {
+//       header.classList.add("dark");
+//     } else {
+//       header.classList.remove("dark");
+//     }
+//   });
+// });
+
+// sectionsDarkObserver.observe(sectionsDark);
