@@ -645,3 +645,57 @@ body {
 }
 //</AGENCY>===========================================================================
 
+//<JOB>============================================================================
+.job {
+    // .job__welcome
+    &__welcome {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 710px;
+      position: relative;
+    }
+		// .job__welcome-img-wrapper
+		&__welcome-img-wrapper {
+      z-index: -1;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+		}
+		// .job__content
+		&__content {
+		}
+		// .job__title
+		&__title {
+      margin: 0px 0px 100px 60px;
+      @include adaptiv-font(71, 21, 1);
+      line-height: 114 / 71 * 100%;
+      color: $additionalColor;
+      @media (max-width: $md2+px) {
+        margin: 0px 0px 50px 30px;
+      }
+		}
+		// .job__text
+		&__text {
+      max-width: 1140px;
+      @include adaptiv-value("padding-top", 100, 50, 1);
+      @include adaptiv-value("padding-bottom", 80, 40, 1);
+      & p {
+        @include adaptiv-font(30, 15, 1);
+        line-height: 58.5 / 30 * 100%;
+      }
+		}
+		// .job__img-wrapper
+		&__img-wrapper {
+      margin: 0 -60px;
+      padding-top: 60%;
+      @media (max-width: $md2+px) {
+        margin: 0 -30px;
+      }
+		}
+}
+
+//</JOB>===========================================================================
+
