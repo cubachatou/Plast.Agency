@@ -5,175 +5,206 @@
   width: 100%;
   top: 30px;
   transition: all 0.3s ease 0s;
-		// .header__content
-		&__content {
-      margin: 0;
-      padding: 0 60px;
-      min-width: 100%;
-		}
-		// .header__logo
-		&__logo {
-      position: relative;
-      z-index: 1;
-      display: block;
-      height: 28px;
-      width: 170px;
-      background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
-		}
+  // .header__content
+  &__content {
+    margin: 0;
+    padding: 0 60px;
+    min-width: 100%;
+  }
+  // .header__logo
+  &__logo {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 28px;
+    width: 170px;
+    background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
+  }
 }
-
 
 .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-		// .menu__icon
-		&__icon {
-      // font-size: 22px;
-		}
-		// .menu__body
-		&__body {
-      position: fixed;
+  // .menu__icon
+  &__icon {
+    // font-size: 22px;
+  }
+  // .menu__body
+  &__body {
+    position: fixed;
+    top: 0px;
+    left: 100%;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: var(--additionalColor);
+    text-align: right;
+    &._active {
+      left: 50%;
+      @media (max-width: $md3+px) {
+        left: 0%;
+      }
+    }
+    @media (max-width: $md3+px) {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  // .menu__list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 76px;
+    @media (max-width: $md3+px) {
+      margin-right: 0;
+    }
+  }
+  // .menu__lang
+  &__lang {
+    position: absolute;
+    bottom: 50px;
+    right: 76px;
+    @include adaptiv-value("padding", 10, 6, 1);
+    @include adaptiv-font(20, 12.5, 1);
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+    transition: all 0.3s ease 0s;
+    border-radius: 2.5px;
+    overflow: hidden;
+    &::before {
+      z-index: -1;
+      content: "";
+      position: absolute;
       top: 0px;
       left: 100%;
+      width: 100%;
       height: 100%;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      transition: .8s cubic-bezier(.19,1,.22,1);
-      background-color: $additionalColor;
-      text-align: right;
-      &._active {
-        left: 50%;
-        @media (max-width: $md3+px) {
-          left: 0%;
-        }
-      }
-      @media (max-width: $md3+px) {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-      }
-		}
-		// .menu__list
-		&__list {
-      display: flex;
-      flex-direction: column;
-      margin-right: 76px;
-      @media (max-width: $md3+px) {
-        margin-right: 0;
-      }
-		}
-		// .menu__lang
-		&__lang {
-      position: absolute;
-      bottom: 50px;
-      right: 76px;
-      @include adaptiv-value("padding", 10, 6, 1);
-      @include adaptiv-font(20, 12.5, 1);
-      color: $mainColor;
-      border: 1px solid $mainColor;
-      transition: all 0.3s ease 0s;
+      background-color: var(--mainColor);
       border-radius: 2.5px;
-      overflow: hidden;
+      transition: all 0.3s ease 0s;
+    }
+    &:focus,
+    &:hover {
+      color: var(--hoverColor);
       &::before {
-        z-index: -1;
-        content: '';
-        position: absolute;
-        top: 0px;
-        left: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: $mainColor;
-        border-radius: 2.5px;
-        transition: all 0.3s ease 0s;
+        left: 0;
       }
-      &:focus, &:hover {
-        color: $hoverColor;
-        border: 1px solid $hoverColor;
-        &::before {
-          left: 0;
-        }
-      }
-      @media (max-width: $md3+px) {
-        text-align: center;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-		}
+    }
+    @media (max-width: $md3+px) {
+      text-align: center;
+      bottom: 40px;
+      left: 42.5%;
+      transform: translateX(-50%);
+      // transform: translateX(-50%);
+      width: fit-content;
+    }
+  }
+  // .menu__switcher
+  &__switcher {
+    position: absolute;
+    bottom: 50px;
+    right: 150px;
+    @include adaptiv-value("width", 42, 26, 1);
+    @include adaptiv-value("height", 42, 26, 1);
+    @include adaptiv-value("padding", 5, 2.5, 1);
+    border: 1px solid var(--mainColor);
+    border-radius: 2.5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: var(--mainColor);
+      fill: #ffff00;
+    }
+    @media (max-width: $md3+px) {
+      left: 57.5%;
+      transform: translateX(-50%);
+      bottom: 40px;
+    }
+  }
 }
 
 .main-menu {
   @include adaptiv-value("margin-bottom", 80, 40, 1);
-		// .main-menu__item
-		&__item {
-      &:not(:last-child) {
-        @include adaptiv-value("margin-bottom", 50, 25, 1);
-      };
-		}
-		// .main-menu__link
-		&__link {
-      position: relative;
-      @include adaptiv-font(55, 36, 1);
-      color: $mainColor;
-      transition: color 0.5s ease 0s, padding-right 0.5s ease 0s;
-      &:focus, &:hover {
-        color: $hoverColor;
-        padding-right: 30px;
-        &::after {
-          left: -50%;
-        }
-      }
+  // .main-menu__item
+  &__item {
+    &:not(:last-child) {
+      @include adaptiv-value("margin-bottom", 50, 25, 1);
+    }
+  }
+  // .main-menu__link
+  &__link {
+    position: relative;
+    @include adaptiv-font(55, 36, 1);
+    color: var(--mainColor);
+    transition: color 0.5s ease 0s, padding-right 0.5s ease 0s;
+    &:focus,
+    &:hover {
+      color: var(--hoverColor);
+      padding-right: 30px;
       &::after {
-        z-index: -1;
-        content: '';
-        position: absolute;
-        top: -10%;
-        left: 250%;
-        width: 250%;
-        height: 120%;
-        background-color: $mainColor;
-        transition: all 0.5s ease 0s;
-        border-radius: 2.5px;
+        left: -50%;
       }
-		}
+    }
+    &::after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 250%;
+      width: 250%;
+      height: 120%;
+      background-color: var(--mainColor);
+      transition: all 0.5s ease 0s;
+      border-radius: 2.5px;
+      @media (max-width: $md3+px) {
+        display: none;
+      }
+    }
+  }
 }
 
 .bot-menu {
-		// .bot-menu__item
-		&__item {
-      &:not(:last-child) {
-        @include adaptiv-value("margin-bottom", 40, 20, 1);
-      };
-		}
-		// .bot-menu__link
-		&__link {
-      position: relative;
-      @include adaptiv-font(30, 20, 1);
-      color: $mainColor;
-      transition: color 0.5s ease 0s;
-      &:focus, &:hover {
-        color: $hoverColor;
-        &::after {
-          left: -50%;
-        }
-      }
+  // .bot-menu__item
+  &__item {
+    &:not(:last-child) {
+      @include adaptiv-value("margin-bottom", 40, 20, 1);
+    }
+  }
+  // .bot-menu__link
+  &__link {
+    position: relative;
+    @include adaptiv-font(30, 20, 1);
+    color: var(--mainColor);
+    transition: color 0.5s ease 0s;
+    &:focus,
+    &:hover {
+      color: var(--hoverColor);
       &::after {
-        z-index: -1;
-        content: '';
-        position: absolute;
-        top: -10%;
-        left: 250%;
-        width: 250%;
-        height: 120%;
-        background-color: $mainColor;
-        transition: all 0.5s ease 0s;
-        border-radius: 2.5px;
+        left: -50%;
       }
-		}
+    }
+    &::after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 250%;
+      width: 250%;
+      height: 120%;
+      background-color: var(--mainColor);
+      transition: all 0.5s ease 0s;
+      border-radius: 2.5px;
+      @media (max-width: $md3+px) {
+        display: none;
+      }
+    }
+  }
 }
 
 //====================================================================================================
@@ -199,7 +230,7 @@
       position: absolute;
       width: 100%;
       height: 5px;
-      background-color: $additionalColor;
+      background-color: #fff;
       @media (max-width: $md2+px) {
         height: 4px;
       }
@@ -215,14 +246,14 @@
   &_black {
     & > span {
       & span {
-        background-color: $mainColor;
+        background-color: var(--mainColor);
       }
     }
   }
   &._active {
     & > span {
       & span {
-        background-color: $mainColor;
+        background-color: var(--mainColor);
         &:first-child {
           top: calc(50% - 5px);
           @media (max-width: $md2+px) {

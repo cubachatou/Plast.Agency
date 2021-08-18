@@ -9,41 +9,41 @@
 //   prevScrollpos = currentScrollPos;
 // };
 
-function isOnScreen(elem) {
-  // if the element doesn't exist, abort
-  if (elem.length == 0) {
-    return;
-  }
-  var jQuerywindow = jQuery(window);
-  var viewport_top = jQuerywindow.scrollTop();
-  var viewport_height = 50; //jQuerywindow.height()
-  var viewport_bottom = viewport_top + viewport_height;
-  var jQueryelem = jQuery(elem);
-  var top = jQueryelem.offset().top + 0;
-  var height = jQueryelem.height() + 130;
-  var bottom = top + height;
+// function isOnScreen(elem) {
+//   // if the element doesn't exist, abort
+//   if (elem.length == 0) {
+//     return;
+//   }
+//   var jQuerywindow = jQuery(window);
+//   var viewport_top = jQuerywindow.scrollTop();
+//   var viewport_height = 50; //jQuerywindow.height()
+//   var viewport_bottom = viewport_top + viewport_height;
+//   var jQueryelem = jQuery(elem);
+//   var top = jQueryelem.offset().top + 0;
+//   var height = jQueryelem.height() + 130;
+//   var bottom = top + height;
 
-  if (
-    (top >= viewport_top && top < viewport_bottom) ||
-    (bottom > viewport_top && bottom <= viewport_bottom) ||
-    (height > viewport_height &&
-      top <= viewport_top &&
-      bottom >= viewport_bottom)
-  ) {
-    return true;
-  }
-}
+//   if (
+//     (top >= viewport_top && top < viewport_bottom) ||
+//     (bottom > viewport_top && bottom <= viewport_bottom) ||
+//     (height > viewport_height &&
+//       top <= viewport_top &&
+//       bottom >= viewport_bottom)
+//   ) {
+//     return true;
+//   }
+// }
 
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (isOnScreen(jQuery(".light"))) {
-      $("header").add("backgroundColor", "#fff");
-    } else {}
-  },
-  false
-);
+// document.addEventListener(
+//   "scroll",
+//   function (e) {
+//     if (isOnScreen(jQuery(".light"))) {
+//       $("header").add("backgroundColor", "#fff");
+//     } else {}
+//   },
+//   false
+// );
 
 
 // const header = document.querySelector("header");
