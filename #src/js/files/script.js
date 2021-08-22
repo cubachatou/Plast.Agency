@@ -64,3 +64,39 @@
 // });
 
 // sectionsDarkObserver.observe(sectionsDark);
+
+
+//=====================================================================================
+var themeSwitcher = document.getElementById("switcher");
+var themeLink = document.getElementById("theme-link");
+
+themeSwitcher.addEventListener("click", function () {
+  ChangeTheme();
+});
+
+function ChangeTheme() {
+  let lightTheme = "css/light.css";
+  let darkTheme = "css/dark.css";
+
+  var currTheme = themeLink.getAttribute("href");
+  var theme = "";
+
+  if (currTheme == lightTheme) {
+    currTheme = darkTheme;
+    theme = "dark";
+  } else {
+    currTheme = lightTheme;
+    theme = "light";
+  }
+
+  themeLink.setAttribute("href", currTheme);
+
+  Save(theme);
+
+  function Save(theme) {
+    var Request = new XMLHttpRequest();
+    Request.open("GET", "themes.php?theme=" + theme, true);
+    Request.send();
+  }
+  
+}

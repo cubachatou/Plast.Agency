@@ -3,6 +3,20 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/style.min.css">
+  <?php
+  session_start();
+
+  if(!isset($_SESSION["theme"]))
+  {
+      $_SESSION["theme"] = "light";
+  }
+
+  if(isset($_COOKIE['switchTheme'])){
+    $_SESSION["theme"] = $_COOKIE['switchTheme'];
+  }
+  ?>
+	<link rel="stylesheet" href="css/light.css" id="theme-link">
+  <link rel="stylesheet" type="text/css" id="theme-link" href="css/<?php echo $_SESSION['theme']; ?>.css">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->

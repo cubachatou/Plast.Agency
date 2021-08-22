@@ -1,17 +1,21 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["theme"]))
+{
+    $_SESSION["theme"] = "light";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('_head.html',{
-	"title":"Branding - Plast.Agency"
-	})
-	<body class="_theme-dark">
-		<div class="wrapper">
+  @@include('_head.html',{ "title":"Branding - Plast.Agency" })
+  <body>
+    <div class="wrapper wrapper-folio">
       <header class="header">
         <div class="header__content _container">
           <div class="header__menu menu">
-            <a href="index.html" class="header__logo">
-              <span class="header__logo_white"></span>
-              <span class="header__logo_black"></span>
-            </a>
+            <a href="index.html" class="header__logo"></a>
             <button type="button" class="menu__icon icon-menu icon-menu_black">
               <span>
                 <span class="icon-menu__span"></span>
@@ -20,17 +24,29 @@
             </button>
             <nav class="menu__body">
               <ul class="menu__list main-menu">
-                <li class="main-menu__item"><a href="folio.html" class="main-menu__link">Branding</a></li>
-                <li class="main-menu__item"><a href="folio.html" class="main-menu__link">Digital</a></li>
-                <li class="main-menu__item"><a href="folio.html" class="main-menu__link">Mobile</a></li>
-                <li class="main-menu__item"><a href="folio.html" class="main-menu__link">Pictures</a></li>
+                <li class="main-menu__item">
+                  <a href="folio.html" class="main-menu__link">Branding</a>
+                </li>
+                <li class="main-menu__item">
+                  <a href="folio.html" class="main-menu__link">Digital</a>
+                </li>
+                <li class="main-menu__item">
+                  <a href="folio.html" class="main-menu__link">Mobile</a>
+                </li>
+                <li class="main-menu__item">
+                  <a href="folio.html" class="main-menu__link">Pictures</a>
+                </li>
               </ul>
               <ul class="menu__list bot-menu">
-                <li class="bot-menu__item"><a href="agency.html" class="bot-menu__link">Агентство</a></li>
-                <li class="bot-menu__item"><a href="contacts.html" class="bot-menu__link">Контакты</a></li>
+                <li class="bot-menu__item">
+                  <a href="agency.html" class="bot-menu__link">Агентство</a>
+                </li>
+                <li class="bot-menu__item">
+                  <a href="contacts.html" class="bot-menu__link">Контакты</a>
+                </li>
               </ul>
               <a href="#" class="menu__lang">Eng</a>
-              <span class="menu__switcher">
+              <span class="menu__switcher" id="switcher">
                 <svg
                   version="1.1"
                   id="light-bulb"
@@ -43,7 +59,6 @@
                   xml:space="preserve"
                 >
                   <path
-                    
                     d="M216.529,93.2c-61.2,0-111.2,50-111.2,111.2c0,32,14,62.8,37.6,83.6c17.6,17.6,16,55.2,15.6,55.6
                     c0,2,0.4,3.6,2,5.2c1.2,1.2,3.2,2,4.8,2h102c2,0,3.6-0.8,4.8-2c1.2-1.2,2-3.2,2-5.2c0-0.4-2-38,15.6-55.6
                     c0.4-0.4,0.8-0.8,1.2-1.2c23.2-21.2,36.8-51.2,36.8-82.4C327.729,143.2,277.729,93.2,216.529,93.2z M280.529,277.6
@@ -51,44 +66,36 @@
                     c0-54,43.6-97.6,97.6-97.6s97.6,43.6,97.6,97.6C313.729,232.4,301.729,259.2,280.529,277.6z"
                   />
                   <path
-                    
                     d="M216.129,121.6c-3.6,0-6.8,3.2-6.8,6.8c0,3.6,3.2,6.8,6.8,6.8c40.4,0,72.8,32.8,72.8,72.8
                     c0,3.6,3.2,6.8,6.8,6.8c3.6,0,6.8-3.2,6.8-6.8C302.929,160.4,264.129,121.6,216.129,121.6z"
                   />
                   <path
-                    
                     d="M260.529,358.4h-88.8c-9.2,0-16.8,7.6-16.8,16.8s7.6,16.8,16.8,16.8h88.4
                     c9.6-0.4,17.2-7.6,17.2-16.8C277.329,366,269.729,358.4,260.529,358.4z M260.529,378h-88.8c-1.6,0-3.2-1.2-3.2-3.2
                     s1.2-3.2,3.2-3.2h88.4c1.6,0,3.2,1.2,3.2,3.2S262.129,378,260.529,378z"
                   />
                   <path
-                    
                     d="M247.329,398.8h-62.4c-9.2,0-16.8,7.6-16.8,16.8s7.6,16.8,16.8,16.8h62.4
                     c9.2,0,16.8-7.6,16.8-16.8C264.129,406,256.529,398.8,247.329,398.8z M247.329,418.4h-62.4c-1.6,0-3.2-1.2-3.2-3.2
                     s1.2-3.2,3.2-3.2h62.4c1.6,0,3.2,1.2,3.2,3.2S248.929,418.4,247.329,418.4z"
                   />
                   <path
-                    
                     d="M216.129,60c4,0,6.8-3.2,6.8-6.8V6.8c0-3.6-3.2-6.8-6.8-6.8c-3.6,0-6.8,3.2-6.8,6.8v46.4
                     C209.329,56.8,212.529,60,216.129,60z"
                   />
                   <path
-                    
                     d="M329.329,34.4c-3.2-2.4-7.2-1.2-9.2,1.6l-25.6,38.4c-2.4,3.2-1.6,7.6,1.6,9.6
                     c1.2,0.8,2.4,1.2,3.6,1.2c2.4,0,4.4-1.2,5.6-3.2l25.6-38.4C333.329,40.8,332.529,36.4,329.329,34.4z"
                   />
                   <path
-                    
                     d="M134.929,83.6c1.2,0,2.4-0.4,3.6-1.2c3.2-2,4-6.4,2-9.6l-24.8-38.8c-2-3.2-6.4-4-9.6-2
                     s-4,6.4-2,9.6l24.8,38.8C130.529,82.8,132.529,83.6,134.929,83.6z"
                   />
                   <path
-                    
                     d="M86.529,126l-40.4-22c-3.2-1.6-7.6-0.4-9.2,2.8c-2,3.2-0.8,7.6,2.8,9.2l40.4,22
                     c1.2,0.4,2,0.8,3.2,0.8c2.4,0,4.8-1.2,6-3.6C90.929,132,89.729,127.6,86.529,126z"
                   />
                   <path
-                    
                     d="M395.729,106.8c-1.6-3.2-6-4.4-9.2-2.8l-40.8,22c-3.2,1.6-4.4,6-2.8,9.2c1.2,2.4,3.6,3.6,6,3.6
                     c1.2,0,2.4-0.4,3.2-0.8l40.8-22C396.129,114.4,397.329,110,395.729,106.8z"
                   />
@@ -101,7 +108,15 @@
       <main class="page folio">
         <section class="folio__wrapper">
           <div class="folio__content _container light">
-            <p><span>Branding. </span>Мы создаем стратегии для запуска и продвижения брендов, изобретаем инновационные системы идентификации и реализуем коммуникационные кампании, развивающие бренд. Мы работаем с корпорациями и небольшими стартапами, популярными продуктами и эксклюзивными сервисами, массовыми событиями и личностями. Наши решения открывают простор для воображения и новые пути для развития бренд-коммуникации.</p>
+            <p>
+              <span>Branding. </span>Мы создаем стратегии для запуска и
+              продвижения брендов, изобретаем инновационные системы
+              идентификации и реализуем коммуникационные кампании, развивающие
+              бренд. Мы работаем с корпорациями и небольшими стартапами,
+              популярными продуктами и эксклюзивными сервисами, массовыми
+              событиями и личностями. Наши решения открывают простор для
+              воображения и новые пути для развития бренд-коммуникации.
+            </p>
           </div>
           <div class="folio__filter _container light">
             <ul class="folio__list">
@@ -114,93 +129,93 @@
           </div>
         </section>
         <section class="works dark">
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_1 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/101/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/101/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_2 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1018/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1018/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_3 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1031/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1031/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_1 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1048/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1048/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_2 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1049/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1049/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_3 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1051/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1051/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_1 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1054/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1054/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_2 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1055/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1055/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_3 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1068/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1068/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_1 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1073/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1073/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_2 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1077/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1077/640" loading="lazy" alt=""/></span>
           </a>
-          <a href="folio-item.html" class="works__item _ibg">
+          <a class="works__item works__item_3 _scr-item _ibg">
             <span class="works__item-body">
               <b class="works__brand">Яндекс GO</b>
               <p class="works__done">Айдентика</p>
             </span>
-            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1074/640" loading="lazy" alt=""></span>
+            <span class="works__img-wrapper"><img src="https://picsum.photos/id/1074/640" loading="lazy" alt=""/></span>
           </a>
         </section>
       </main>
-		</div>
-		@@include('_js.html',{})
-	</body>
+    </div>
+    @@include('_js.html',{})
+  </body>
 </html>

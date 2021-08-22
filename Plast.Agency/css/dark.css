@@ -1,0 +1,46 @@
+body {
+  --mainColor: #fff;
+  --additionalColor: #050000;
+  --hoverColor: #fef822;
+}
+body .main-menu__link::after,
+body .bot-menu__link::after {
+  display: none;
+}
+body .menu__lang:hover {
+  color: var(--additionalColor);
+  background-color: var(--hoverColor);
+  border-color: var(--hoverColor);
+}
+body .menu__lang:hover .menu__lang::before {
+  background-color: var(--hoverColor);
+}
+body .publications__item-subtitle {
+  color: silver;
+}
+body .publications {
+  background-color: rgba(0, 0, 0, 0.875);
+}
+body .menu__switcher {
+  fill: var(--mainColor);
+}
+body .menu__switcher:hover {
+  background-color: var(--hoverColor);
+  fill: var(--additionalColor);
+  border-color: var(--hoverColor);
+}
+.wrapper-folio .header__logo {
+  background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
+}
+
+.wrapper-agency .header__logo {
+  background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
+}
+
+.wrapper-contacts .header__logo {
+  background: url(../img/icons/logo.svg) no-repeat 50% 50% / contain;
+}
+
+.btn:hover {
+  color: var(--additionalColor);
+}
