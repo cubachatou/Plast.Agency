@@ -34,7 +34,6 @@
 //   }
 // }
 
-
 // document.addEventListener(
 //   "scroll",
 //   function (e) {
@@ -45,10 +44,8 @@
 //   false
 // );
 
-
 // const header = document.querySelector("header");
 // const sectionsDark = document.querySelector(".dark");
-
 
 // const sectionsDarkObserver = new IntersectionObserver(function (
 //   entries,
@@ -65,38 +62,15 @@
 
 // sectionsDarkObserver.observe(sectionsDark);
 
-
 //=====================================================================================
-var themeSwitcher = document.getElementById("switcher");
-var themeLink = document.getElementById("theme-link");
+let themeSwitcher = document.getElementById("switcher");
 
-themeSwitcher.addEventListener("click", function () {
-  ChangeTheme();
-});
+themeSwitcher.onclick = function () {
+  let theme = document.getElementById("theme-link");
 
-function ChangeTheme() {
-  let lightTheme = "css/light.css";
-  let darkTheme = "css/dark.css";
-
-  var currTheme = themeLink.getAttribute("href");
-  var theme = "";
-
-  if (currTheme == lightTheme) {
-    currTheme = darkTheme;
-    theme = "dark";
+  if (theme.getAttribute("href") == "css/light.css") {
+    theme.href = "css/dark.css";
   } else {
-    currTheme = lightTheme;
-    theme = "light";
+    theme.href = "css/light.css";
   }
-
-  themeLink.setAttribute("href", currTheme);
-
-  Save(theme);
-
-  function Save(theme) {
-    var Request = new XMLHttpRequest();
-    Request.open("GET", "themes.php?theme=" + theme, true);
-    Request.send();
-  }
-  
-}
+};

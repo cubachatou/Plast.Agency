@@ -1633,9 +1633,9 @@ body.ie ._ibg img {
 }
 
 .key-numbers__col_4 {
-  -webkit-transition: opacityl 0.3s ease 0.6s, top 0.3s ease 0.6s;
-  -o-transition: opacityl 0.3s ease 0.6s, top 0.3s ease 0.6s;
-  transition: opacityl 0.3s ease 0.6s, top 0.3s ease 0.6s;
+  -webkit-transition: opacity 0.3s ease 0.6s, top 0.3s ease 0.6s;
+  -o-transition: opacity 0.3s ease 0.6s, top 0.3s ease 0.6s;
+  transition: opacity 0.3s ease 0.6s, top 0.3s ease 0.6s;
 }
 
 .key-numbers__number {
