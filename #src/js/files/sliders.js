@@ -63,10 +63,10 @@ function sliders_bild_callback(params) { }
 
 let sliderMain = new Swiper(".slider__swiper", {
   // effect: 'fade',
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  //   disableOnInteraction: false,
+  // },
   observer: true,
   observeParents: true,
   slidesPerView: 1,

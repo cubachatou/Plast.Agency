@@ -1442,6 +1442,7 @@ body.ie ._ibg img {
   position: relative;
   padding: 16.115% 0px;
   background-color: rgba(0, 0, 0, 0.2);
+  min-width: 100%;
 }
 
 .slider__img-wrapper {
