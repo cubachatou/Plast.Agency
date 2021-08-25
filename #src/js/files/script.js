@@ -1,3 +1,4 @@
+//=====================================================================================
 // let prevScrollpos = window.pageYOffset;
 // window.onscroll = function () {
 //   let currentScrollPos = window.pageYOffset;
@@ -8,7 +9,9 @@
 //   }
 //   prevScrollpos = currentScrollPos;
 // };
+//=====================================================================================
 
+//=====================================================================================
 // function isOnScreen(elem) {
 //   // if the element doesn't exist, abort
 //   if (elem.length == 0) {
@@ -29,9 +32,7 @@
 //     (height > viewport_height &&
 //       top <= viewport_top &&
 //       bottom >= viewport_bottom)
-//   ) {
-//     return true;
-//   }
+//   ) {return true;}
 // }
 
 // document.addEventListener(
@@ -43,7 +44,9 @@
 //   },
 //   false
 // );
+//=====================================================================================
 
+//=====================================================================================
 // const header = document.querySelector("header");
 // const sectionsDark = document.querySelector(".dark");
 
@@ -61,16 +64,39 @@
 // });
 
 // sectionsDarkObserver.observe(sectionsDark);
+//=====================================================================================
 
 //=====================================================================================
-let themeSwitcher = document.getElementById("switcher");
+var themeSwitcher = document.getElementById("switcher");
+var themeLink = document.getElementById("theme-link");
 
-themeSwitcher.onclick = function () {
-  let theme = document.getElementById("theme-link");
+themeSwitcher.addEventListener("click", function () {
+  ChangeTheme();
+});
 
-  if (theme.getAttribute("href") == "css/light.css") {
-    theme.href = "css/dark.css";
+function ChangeTheme() {
+  let lightTheme = "css/light.css";
+  let darkTheme = "css/dark.css";
+
+  var currTheme = themeLink.getAttribute("href");
+  var theme = "";
+
+  if (currTheme == lightTheme) {
+    currTheme = darkTheme;
+    theme = "dark";
   } else {
-    theme.href = "css/light.css";
+    currTheme = lightTheme;
+    theme = "light";
   }
-};
+
+  themeLink.setAttribute("href", currTheme);
+
+  Save(theme);
+  
+  function Save(theme) {
+    var Request = new XMLHttpRequest();
+    Request.open("GET", "./themes.php?theme=" + theme, true);
+    Request.send();
+  }
+
+}

@@ -910,6 +910,7 @@ let sliderMain = new Swiper(".slider__swiper", {
   },
 });
 
+//=====================================================================================
 // let prevScrollpos = window.pageYOffset;
 // window.onscroll = function () {
 //   let currentScrollPos = window.pageYOffset;
@@ -920,7 +921,9 @@ let sliderMain = new Swiper(".slider__swiper", {
 //   }
 //   prevScrollpos = currentScrollPos;
 // };
+//=====================================================================================
 
+//=====================================================================================
 // function isOnScreen(elem) {
 //   // if the element doesn't exist, abort
 //   if (elem.length == 0) {
@@ -941,9 +944,7 @@ let sliderMain = new Swiper(".slider__swiper", {
 //     (height > viewport_height &&
 //       top <= viewport_top &&
 //       bottom >= viewport_bottom)
-//   ) {
-//     return true;
-//   }
+//   ) {return true;}
 // }
 
 // document.addEventListener(
@@ -955,7 +956,9 @@ let sliderMain = new Swiper(".slider__swiper", {
 //   },
 //   false
 // );
+//=====================================================================================
 
+//=====================================================================================
 // const header = document.querySelector("header");
 // const sectionsDark = document.querySelector(".dark");
 
@@ -973,19 +976,42 @@ let sliderMain = new Swiper(".slider__swiper", {
 // });
 
 // sectionsDarkObserver.observe(sectionsDark);
+//=====================================================================================
 
 //=====================================================================================
-let themeSwitcher = document.getElementById("switcher");
+var themeSwitcher = document.getElementById("switcher");
+var themeLink = document.getElementById("theme-link");
 
-themeSwitcher.onclick = function () {
-  let theme = document.getElementById("theme-link");
+themeSwitcher.addEventListener("click", function () {
+  ChangeTheme();
+});
 
-  if (theme.getAttribute("href") == "css/light.css") {
-    theme.href = "css/dark.css";
+function ChangeTheme() {
+  let lightTheme = "css/light.css";
+  let darkTheme = "css/dark.css";
+
+  var currTheme = themeLink.getAttribute("href");
+  var theme = "";
+
+  if (currTheme == lightTheme) {
+    currTheme = darkTheme;
+    theme = "dark";
   } else {
-    theme.href = "css/light.css";
+    currTheme = lightTheme;
+    theme = "light";
   }
-};
+
+  themeLink.setAttribute("href", currTheme);
+
+  Save(theme);
+  
+  function Save(theme) {
+    var Request = new XMLHttpRequest();
+    Request.open("GET", "./themes.php?theme=" + theme, true);
+    Request.send();
+  }
+
+}
 
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
